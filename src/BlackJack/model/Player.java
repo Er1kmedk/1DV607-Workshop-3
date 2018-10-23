@@ -38,6 +38,7 @@ public class Player {
     }
   }
   
+  
   public int CalcScore()
   {
     // the number of scores is dependant on the number of scorable values
