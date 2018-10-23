@@ -10,4 +10,9 @@ public class RulesFactory {
   public INewGameStrategy GetNewGameRule() {
     return new AmericanNewGameStrategy();
   }
+  
+  public IWhoWinStrategy GetWinRule() {
+	  return new DealerWinRule();
+	  //return new PlayerWinRule();
+  }
 }
