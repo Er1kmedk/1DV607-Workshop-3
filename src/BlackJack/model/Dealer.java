@@ -47,10 +47,10 @@ public class Dealer extends Player {
 		  
 		  a_player.ShowHand();
 		  
-		  for (Card c:this.GetHand())
-		  {
-			  c.Show(true);
-		  }
+		  this.ShowHand();
+		  
+		  if(!m_hitRule.DoHit(this)) {a_player.cardGiven();}
+		  
 		  while(m_hitRule.DoHit(this)){  
 			  System.out.println("Yellow");
 			  this.DealCard(m_deck.GetCard(true));

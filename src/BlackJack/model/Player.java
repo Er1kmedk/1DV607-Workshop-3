@@ -23,6 +23,14 @@ public class Player {
 	  m_subscribers.add(a_sub);
   }
   
+  public void cardGiven()
+  {
+	  for(ICardGiven sub : m_subscribers)
+	  {
+		  sub.CardGiven();
+	  }	  
+  }
+  
   public void DealCard(Card a_addToHand)
   {
     m_hand.add(a_addToHand);
