@@ -15,9 +15,9 @@ public class PlayGame implements ICardGiven {
 		a_view = new SimpleView();
 		
 		a_game.addSubscriber(this);
+	    a_view.DisplayWelcomeMessage();
 	}
   public boolean Play() {
-    a_view.DisplayWelcomeMessage();
    
     if (a_game.IsGameOver())
     {
@@ -47,8 +47,9 @@ public class PlayGame implements ICardGiven {
 
 @Override
 	public void CardGiven() {
+		a_view.DisplaySpaces();
 		a_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
 		a_view.DisplayPlayerHand(a_game.GetPlayerHand(), a_game.GetPlayerScore());	
-		a_view.DisplaySpaces();
+		a_view.DisplayWelcomeMessage();
 	}
 }
