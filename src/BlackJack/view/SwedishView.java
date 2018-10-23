@@ -94,4 +94,10 @@ public class SwedishView implements IView
 		public boolean wantsToQuit() {
 			return input == 'q';
 		}
+
+		@Override
+		public void DisplaySpaces() {
+			for (int i = 0; i < 50; i++) {System.out.println("\n");}
+			
+		}
     }

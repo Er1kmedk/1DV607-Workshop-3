@@ -1,16 +1,24 @@
 package BlackJack.controller;
 
 import BlackJack.view.IView;
+import BlackJack.view.SimpleView;
 import BlackJack.model.Game;
+import BlackJack.model.ICardGiven;
 
-public class PlayGame {
-
-  public boolean Play(Game a_game, IView a_view) {
+public class PlayGame implements ICardGiven {
+	private Game a_game;
+	private IView a_view;
+	
+	public PlayGame()
+	{
+		a_game = new Game();
+		a_view = new SimpleView();
+		
+		a_game.addSubscriber(this);
+	}
+  public boolean Play() {
     a_view.DisplayWelcomeMessage();
-    
-    a_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
-    a_view.DisplayPlayerHand(a_game.GetPlayerHand(), a_game.GetPlayerScore());
-
+   
     if (a_game.IsGameOver())
     {
         a_view.DisplayGameOver(a_game.IsDealerWinner());
@@ -36,4 +44,11 @@ public class PlayGame {
 
     return true;
   }
+
+@Override
+	public void CardGiven() {
+		a_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
+		a_view.DisplayPlayerHand(a_game.GetPlayerHand(), a_game.GetPlayerScore());	
+		a_view.DisplaySpaces();
+	}
 }

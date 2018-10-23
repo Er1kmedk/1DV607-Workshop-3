@@ -11,7 +11,11 @@ public class Game {
     m_player = new Player();
   }
     
-    
+  public void addSubscriber(ICardGiven sub)
+  {
+	  m_dealer.addSubscriber(sub);
+	  m_player.addSubscriber(sub);
+  }
   public boolean IsGameOver()
   {
     return m_dealer.IsGameOver();
