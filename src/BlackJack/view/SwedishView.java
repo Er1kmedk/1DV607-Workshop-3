@@ -2,6 +2,9 @@ package BlackJack.view;
 
 public class SwedishView implements IView 
     {
+	
+	private int input;
+	
         public void DisplayWelcomeMessage()
         {
          
@@ -12,17 +15,16 @@ public class SwedishView implements IView
             System.out.println("Skriv 'p' för att Spela, 'h' för nytt kort, 's' för att stanna 'q' för att avsluta\n");
         }
         
-        public int GetInput()
+        public void GetInput()
         {
           try {
             int c = System.in.read();
             while (c == '\r' || c =='\n') {
               c = System.in.read();
             }
-            return c;
+            input = c;
           } catch (java.io.IOException e) {
             System.out.println("" + e);
-            return 0;
           }
         }
         
@@ -73,21 +75,23 @@ public class SwedishView implements IView
             System.out.println("");
         }
         
-		@Override
+		
 		public boolean wantsToStartNewGame() {
-			// TODO Auto-generated method stub
-			return false;
+			return input == 'p';
 		}
 
-		@Override
+		
 		public boolean wantsToHit() {
-			// TODO Auto-generated method stub
-			return false;
+			return input == 'h';
 		}
 
-		@Override
+	
 		public boolean wantsToStand() {
-			// TODO Auto-generated method stub
-			return false;
+			return input == 's';
+		}
+
+		
+		public boolean wantsToQuit() {
+			return input == 'q';
 		}
     }
