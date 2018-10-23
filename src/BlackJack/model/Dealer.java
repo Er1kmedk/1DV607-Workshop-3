@@ -52,7 +52,6 @@ public class Dealer extends Player {
 		  if(!m_hitRule.DoHit(this)) {a_player.cardGiven();}
 		  
 		  while(m_hitRule.DoHit(this)){  
-			  System.out.println("Yellow");
 			  this.DealCard(m_deck.GetCard(true));
 		  }
 		return true;  
@@ -66,7 +65,7 @@ public class Dealer extends Player {
     } else if (CalcScore() > g_maxScore) {
       return false;
     }
-    return m_winRule.isDealerWinner(this, a_player) || CalcScore() > a_player.CalcScore();
+    return CalcScore() > a_player.CalcScore() || m_winRule.isDealerWinner(this, a_player);
   }
 
   public boolean IsGameOver() {
