@@ -12,23 +12,19 @@ public class SimpleView implements IView
           System.out.println("Type 'p' to Play, 'h' to Hit, 's' to Stand or 'q' to Quit\n");
         }
 
-        public int GetInput()
+        public void GetInput()
         {
           try {
             int c = System.in.read();
             while (c == '\r' || c =='\n') {
               c = System.in.read();
             }
-            return c;
+            input = c;
           } catch (java.io.IOException e) {
             System.out.println("" + e);
-            return 0;
           }
         }
         
-        public void setInput() {
-        	input = GetInput();
-        }
 
         public void DisplayCard(BlackJack.model.Card a_card)
         {
@@ -83,5 +79,9 @@ public class SimpleView implements IView
 		
 		public boolean wantsToStand() {
 			return input == 's';
+		}
+		
+		public boolean wantsToQuit() {
+			return input == 'q';
 		}
     }
