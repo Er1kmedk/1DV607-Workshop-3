@@ -25,10 +25,10 @@ public class Deck {
     m_cards.add(a_cardToAdd);
   }
   
-  public Card GetCard() {
+  public Card GetCard(boolean show) {
     Card c = m_cards.get(0);
     m_cards.remove(0);
-    
+    c.Show(show);
     return c;
   }
   
